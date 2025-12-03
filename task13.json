@@ -1,0 +1,17 @@
+{
+    "accounts": [
+        {
+            "id": 1,
+            "name": "Madhvan Solanki",
+            "phone": "9313124489",
+            "balance": 5000
+        },
+        {
+            "id": 2,
+            "name": "Het Chapaneri",
+            "phone": "8200954193",
+            "balance": 10400.0
+        }
+    ],
+    "id_counter": 2
+}

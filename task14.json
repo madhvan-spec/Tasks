@@ -1,0 +1,220 @@
+{
+    "books": {
+        "B1": {
+            "book_id": "B1",
+            "title": "Stranger Things",
+            "author": "Madhvan Solanki",
+            "genre": "Horror"
+        },
+        "B2": {
+            "book_id": "B2",
+            "title": "Harry Potter - Chamber of Secrets",
+            "author": "J.K. Rowling",
+            "genre": "Mystery"
+        },
+        "B3": {
+            "book_id": "B3",
+            "title": "Demon Slayer",
+            "author": "Maddy",
+            "genre": "Anime"
+        },
+        "B4": {
+            "book_id": "B4",
+            "title": "abcd",
+            "author": "abcd",
+            "genre": "abcd"
+        },
+        "B5": {
+            "book_id": "B5",
+            "title": "xyz",
+            "author": "xyz",
+            "genre": "xyz"
+        }
+    },
+    "members": {
+        "M1": {
+            "member_id": "M1",
+            "name": "Madhvan Solanki",
+            "library_id": "L1",
+            "borrowed_copies": [
+                "B3_Copy1"
+            ]
+        },
+        "M2": {
+            "member_id": "M2",
+            "name": "Het Chapaneri",
+            "library_id": "L2",
+            "borrowed_copies": []
+        },
+        "M3": {
+            "member_id": "M3",
+            "name": "Harshil Vaghela",
+            "library_id": "L1",
+            "borrowed_copies": [
+                "B3_Copy2"
+            ]
+        }
+    },
+    "book_copies": {
+        "B3_Copy1": {
+            "copy_id": "B3_Copy1",
+            "book_id": "B3",
+            "library_id": "L1",
+            "is_available": false,
+            "borrowed_by": "M1"
+        },
+        "B3_Copy2": {
+            "copy_id": "B3_Copy2",
+            "book_id": "B3",
+            "library_id": "L1",
+            "is_available": false,
+            "borrowed_by": "M3"
+        },
+        "B3_Copy3": {
+            "copy_id": "B3_Copy3",
+            "book_id": "B3",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        },
+        "B3_Copy4": {
+            "copy_id": "B3_Copy4",
+            "book_id": "B3",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        },
+        "B3_Copy5": {
+            "copy_id": "B3_Copy5",
+            "book_id": "B3",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        },
+        "B3_Copy6": {
+            "copy_id": "B3_Copy6",
+            "book_id": "B3",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        },
+        "B3_Copy7": {
+            "copy_id": "B3_Copy7",
+            "book_id": "B3",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        },
+        "B3_Copy8": {
+            "copy_id": "B3_Copy8",
+            "book_id": "B3",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        },
+        "B3_Copy9": {
+            "copy_id": "B3_Copy9",
+            "book_id": "B3",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        },
+        "B3_Copy10": {
+            "copy_id": "B3_Copy10",
+            "book_id": "B3",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        },
+        "B1_Copy1": {
+            "copy_id": "B1_Copy1",
+            "book_id": "B1",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        },
+        "B1_Copy2": {
+            "copy_id": "B1_Copy2",
+            "book_id": "B1",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        },
+        "B1_Copy3": {
+            "copy_id": "B1_Copy3",
+            "book_id": "B1",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        },
+        "B1_Copy4": {
+            "copy_id": "B1_Copy4",
+            "book_id": "B1",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        },
+        "B1_Copy5": {
+            "copy_id": "B1_Copy5",
+            "book_id": "B1",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        },
+        "B2_Copy1": {
+            "copy_id": "B2_Copy1",
+            "book_id": "B2",
+            "library_id": "L1",
+            "is_available": true,
+            "borrowed_by": null
+        }
+    },
+    "libraries": {
+        "L1": {
+            "library_id": "L1",
+            "name": "Crossword - SindhuBhavan",
+            "books": [],
+            "copies": [
+                "B3_Copy1",
+                "B3_Copy2",
+                "B3_Copy3",
+                "B3_Copy4",
+                "B3_Copy5",
+                "B3_Copy6",
+                "B3_Copy7",
+                "B3_Copy8",
+                "B3_Copy9",
+                "B3_Copy10",
+                "B1_Copy1",
+                "B1_Copy2",
+                "B1_Copy3",
+                "B1_Copy4",
+                "B1_Copy5",
+                "B2_Copy1"
+            ],
+            "members": [
+                "M1",
+                "M3"
+            ]
+        },
+        "L2": {
+            "library_id": "L2",
+            "name": "Crossword - Shyamal",
+            "books": [],
+            "copies": [],
+            "members": [
+                "M2"
+            ]
+        }
+    },
+    "counters": {
+        "book_id_counter": 5,
+        "member_id_counter": 3,
+        "library_id_counter": 2,
+        "book_copy_counters": {
+            "B3": 10,
+            "B1": 5,
+            "B2": 1
+        }
+    }
+}
