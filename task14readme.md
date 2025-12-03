@@ -94,7 +94,6 @@ Central system that manages all books, libraries, members, and book copies.
 ```
 task14.py           - Main implementation
 task14.json         - Data persistence file (auto-generated)
-task14readme.txt    - Original documentation
 task14readme.md     - This file
 ```
 
