@@ -1,0 +1,8 @@
+INFO: User logged in
+ERROR: File not found
+WARNING: Low disk space
+ERROR: Connection timeout
+INFO: User logged out
+ERROR: File not found
+ERROR: Connection timeout
+WARNING: High memory usage

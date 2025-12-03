@@ -1,0 +1,4 @@
+Hello world! This is a simple test text file.
+This file is meant to test the word frequency counter.
+The word "test" appears several times in this test file.
+Hello again, world!
