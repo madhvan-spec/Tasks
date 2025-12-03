@@ -37,7 +37,8 @@
             "name": "Madhvan Solanki",
             "library_id": "L1",
             "borrowed_copies": [
-                "B3_Copy1"
+                "B3_Copy1",
+                "B2_Copy1"
             ]
         },
         "M2": {
@@ -165,8 +166,8 @@
             "copy_id": "B2_Copy1",
             "book_id": "B2",
             "library_id": "L1",
-            "is_available": true,
-            "borrowed_by": null
+            "is_available": false,
+            "borrowed_by": "M1"
         }
     },
     "libraries": {
