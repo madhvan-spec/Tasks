@@ -1,4 +1,3 @@
-# Banking Operations Database --> task13.json
 
 import json
 import os
@@ -43,7 +42,7 @@ class BankAccount:
     
     @classmethod
     def from_dict(cls, data):
-        obj = cls.__new__(cls)  # create empty object, no __init__ call
+        obj = cls.__new__(cls)  
         obj.id = data["id"]
         obj.name = data["name"]
         obj.phone = data["phone"]
