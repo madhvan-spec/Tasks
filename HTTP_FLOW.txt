@@ -1,0 +1,89 @@
+STEP 1 : Opened Google Chrome and typed "xylisys.com" 
+         So now it searches for the IP Address in the following order
+         1. Browser Cache
+         2. Os Cache
+         3. DNS Resolver (ISP or Router)
+         4. Root DNS server
+         5. TLD (Top Level Domain) server
+         6. Authoritative Server --> Which will provide the actual IP
+
+         TLD server stores info about which authoritative DNS server controls a specific domain 
+            for example (Cloudfare, GoDaddy etc...)
+         
+         Authoritative server owns the actual DNS records of the domain (IPv4 and IPv6)
+
+         When the IP is fetched it is stored in cache for future Ease of Access respecting the TTL
+            time by Domain Owner
+
+STEP 2 : Once IP is fetched TCP 3 Way Handshake is Request
+         
+         So Chrome initiates the connection by sending a SYN Packet
+            usually ISN (initial Sequence Number) e.g. ClientISN
+            It sends :
+                SYN = 1, Seq = ClientISN, after than it updates it's status to SYN-Sent
+            
+            --> By this it means that the chrome is ready to send & receive data for the requested url
+
+         So now the Web Server (having the IP address of xylisys.com) receives the SYN and replies with 
+            SYN = 1 , ACK = 1 , Ack number = ClientISN + 1 , Seq =  ServerISN
+
+            --> By this it means I acknowledge your request and your sequence number and 
+                Here’s my sequence number—please acknowledge it.
+
+         Chrome receives the server’s SYN-ACK and responds with:
+            ACK = 1 , Ack number = ServerISN + 1
+            Chrome will move to connection established state
+
+         THIS COMPLETES THE TCP 3-WAY HANDSHAKE!    
+
+STEP 3:  Before any data transfer takes place HTTPS requires encryption (FOR HTTPS ONLY)
+
+            So TLS Handshake takes place (Transport Layer Security)
+            ClientHello:
+            Chrome begins by sending the TLS versions and cipher suites it supports, a random value, 
+                and the SNI so the server knows which domain it’s trying to reach (e.g., chatgpt.com).
+
+            ServerHello:
+                The server replies with the TLS version and cipher suite it chose, along with its own random value.
+
+            Server Certificate:
+                The server also sends its certificate, which contains its public key. 
+                    Chrome checks this certificate against trusted Certificate Authorities to make sure it’s authentic.
+
+            Key Exchange:
+                Using the exchanged information, both Chrome and the server work out a shared session key 
+                    that will be used for encryption.
+
+            Secure Connection:
+                Once that key is agreed on, an encrypted tunnel is established, 
+                    and all the HTTP traffic that follows is protected.
+
+            After this all HTML data is encrypted
+
+STEP 4: HTTP Request
+        Example:
+            GET /path/resource HTTP/1.1
+            Host: xylisys.com
+            User-Agent: Mozilla/5.0 (X11; Linux x86_64) 
+            Accept: text/html
+            Connection: keep-alive
+
+STEP 5: Server Process
+
+            It checks the method and urls , verifies it
+            Then begins to process the content like API calls and database queries etc...
+
+            After this, it prepares response with status code, headers and Body
+
+STEP 6: Server sends back an HTTP Response
+        Example:
+            HTTP/1.1 200 OK
+            Content-Type: text/html
+            Content-Length: 1256
+            Set-Cookie: session=abcd1234; HttpOnly
+
+            <html>...content...</html>
+
+STEP 7: Browser Renders the Response/Error and make it visually available on the screen
+
+         

@@ -1,0 +1,37 @@
+Operation 1: Login
+Method : POST (so that the id and password is not embedded into the url)
+Endpoint : /login
+Request Body : {"username" : "madhvan@xylisys.com", "password" : "123"}
+In Response a Token is generated or session Id is passed
+Status Code : 200 for Success & 401 for Invalif
+
+Operation 2: Get All Posts
+Method : GET
+Endpoint : /posts
+Response : All Posts
+Status Code : 200
+
+Operation 3: Create a Post
+Method: POST
+Endpoint : /posts
+Body : {"Headline": "xylisys launches it's IPO", "content":"abc"}
+Response : Success Msg
+Status Code : 201
+
+Operation 4: Get Post by Id
+Method : GET
+Endpoint : /posts/id
+Response : Required Post or Error (if no such post with that particular id exists)
+Status Code : 200 for Success & 404 for not found
+
+Operation 5: Update Post
+Method : PUT
+Endpoint : /posts/id
+Body : Updated content
+Response : Succes Msg and 200 Status Code
+
+
+Operation 6: Delete Post
+Method : DELETE
+Endpoint : /posts/id
+Response : Delete Msg and 204 Status Code

@@ -1,0 +1,12 @@
+POST /login --> login and check password by server returning token 
+GET /users/id --> Fetch Particular User by ID to see profile details
+PUT /users/id --> Update User profile
+DELETE /users/id --> Delete User
+
+GET /posts --> All posts page
+POST /posts --> New post page for user 
+GET /posts/id --> Search Function for Posts
+PUT /posts/id --> Update Post Details By Owner/Author
+DELETE /posts/id --> Delete Post
+
+POST /logout --> Logout and expire the token
