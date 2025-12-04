@@ -408,7 +408,7 @@ def main_menu():
                 member_menu(library_system, library, member)
 
         elif choice == "2":
-            admin_password = "admin123"  # simple fixed password for demo
+            admin_password = "admin123" 
             password = input("Enter admin password: ").strip()
             if password == admin_password:
                 print("Admin login successful!")
