@@ -26,7 +26,7 @@ class Book:
     
     @staticmethod
     def from_json(data):
-        book = Book.__new__(Book)   # create instance without __init__
+        book = Book.__new__(Book)   
         book.book_id = data["book_id"]
         book.title = data["title"]
         book.author = data["author"]
@@ -52,10 +52,10 @@ class BookCopy:
 
     @staticmethod
     def from_json(data, books_dict):
-        # books_dict is available if you want to fetch Book object when needed
+        
         return BookCopy(
             data["copy_id"],
-            data["book_id"],       # still just string
+            data["book_id"],       
             data["library_id"],
             data["is_available"],
             data["borrowed_by"]
@@ -142,9 +142,9 @@ class LibrarySystem:
                 lib_id: {
                     "library_id": lib.library_id,
                     "name": lib.name,
-                    "books": list(lib.books.keys()),    # only book IDs
-                    "copies": list(lib.copies.keys()),  # only copy IDs
-                    "members": list(lib.members.keys()) # only member IDs
+                    "books": list(lib.books.keys()),    
+                    "copies": list(lib.copies.keys()),  
+                    "members": list(lib.members.keys()) 
                 } for lib_id, lib in self.libraries.items()
             },
             "counters": {
@@ -191,9 +191,9 @@ class LibrarySystem:
             library = Library.__new__(Library)
             library.library_id = lib_data["library_id"]
             library.name = lib_data["name"]
-            library.books = {bid: bid for bid in lib_data.get("books", [])}       # book IDs only
-            library.copies = {cid: cid for cid in lib_data.get("copies", [])}     # copy IDs only
-            library.members = {mid: mid for mid in lib_data.get("members", [])}   # member IDs only
+            library.books = {bid: bid for bid in lib_data.get("books", [])}       
+            library.copies = {cid: cid for cid in lib_data.get("copies", [])}     
+            library.members = {mid: mid for mid in lib_data.get("members", [])}   
             self.libraries[lib_id] = library
 
 
@@ -229,7 +229,7 @@ class LibrarySystem:
             print("No libraries available. Please add a library first.")
             return None, None
 
-        # Step 1: Select library
+        
         print("Available Libraries:")
         for lib_id, lib in self.libraries.items():
             print(f"{lib_id}: {lib.name}")
@@ -241,7 +241,7 @@ class LibrarySystem:
 
         library = self.libraries[chosen_lib_id]
 
-        # Step 2: Login or become a member
+        
         print("\n1. Login as existing member")
         print("2. Become a new member")
         choice = input("Choose 1 or 2: ").strip()
@@ -281,7 +281,7 @@ class LibrarySystem:
             print("No books available. Add a book first.")
             return
 
-        # Step 1: Choose library
+      
         print("\nAvailable Libraries:")
         for lib_id, lib in self.libraries.items():
             print(f"{lib_id}: {lib.name}")
@@ -291,7 +291,7 @@ class LibrarySystem:
             return
         library = self.libraries[chosen_lib_id]
 
-        # Step 2: Choose book
+       
         print("\nAvailable Books:")
         for book_id, book in self.books.items():
             print(f"{book_id}: {book.title} by {book.author}")
@@ -301,31 +301,31 @@ class LibrarySystem:
             return
         book = self.books[chosen_book_id]
 
-        # Step 3: Number of copies
+        
         try:
             num_copies = int(input("Enter number of copies to add: ").strip())
         except ValueError:
             print("Invalid number.")
             return
 
-        # Initialize counter for this book if not exists
+        
         if not hasattr(self, "book_copy_counters"):
             self.book_copy_counters = {}
         if chosen_book_id not in self.book_copy_counters:
             self.book_copy_counters[chosen_book_id] = 0
 
-        # Step 4: Add copies
+        
         for _ in range(num_copies):
             self.book_copy_counters[chosen_book_id] += 1
             copy_id = f"{chosen_book_id}_Copy{self.book_copy_counters[chosen_book_id]}"
-            copy = BookCopy(copy_id, book.book_id, library.library_id)  # <-- use book_id here
+            copy = BookCopy(copy_id, book.book_id, library.library_id)  
             self.book_copies[copy_id] = copy
-            library.copies[copy_id] = copy_id  # store only ID in library # store only ID in library
+            library.copies[copy_id] = copy_id  
 
         print(f"{num_copies} copies of '{book.title}' added to {library.name}.")
     
     def borrow_book(self, library, member):
-        # List books in library that the member hasn't borrowed yet and have available copies
+        
         available_books = {}
         for copy_id in library.copies:
             copy = self.book_copies[copy_id]
@@ -345,7 +345,7 @@ class LibrarySystem:
             print("Invalid Book ID or you already borrowed a copy of this book.")
             return
 
-        # Borrow first available copy of the selected book
+        
         for copy_id in library.copies:
             copy = self.book_copies[copy_id]
             if copy.book_id == chosen_book_id and copy.is_available:
